@@ -43,7 +43,7 @@ Turn your pictures into something more. Designed by [planlodge](https://github.c
 	</body>
 	</html>
 	
-**Note regarding Internet Explorer:**
+**Note regarding Internet Explorer and Firefox support:**
 
 > Internet Explorer and Firefox do not currently support the css clip feature. Must have availability to use webkits.
 
