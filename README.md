@@ -15,7 +15,6 @@ Turn your pictures into something more. Designed by [planlodge](https://github.c
 		<title>Transimg</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/transimg.min.css" />
-		<link rel="stylesheet" href="demo/css/demo.css" />
 	</head>
 	<body>
 
@@ -23,25 +22,22 @@ Turn your pictures into something more. Designed by [planlodge](https://github.c
 		
 			<div class="header">
 				<h1>Transimg.JS</h1>
-				<p>Hover over the Image</p>
+				<p>Transform your pictures</p>
 			</div>
 		
 			<img class="transform" src="demo/img/an.jpg" data-title="Sample Image" />
 		
 		</div>
 
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src="src/transimg.min.js"></script>
 		<script>
 			$('.transform').transimg({
 				circular: true,
 				rounded: false,
 				animSet: true,
-				animation: "fadeUp",
-				animSpeed: 10000,
-				showCaption: true,
-				overlay: true,
-				zoom: true
+				animation: "fadeDown",
+				frame: "diamond"
 			});
 		</script>
 	</body>

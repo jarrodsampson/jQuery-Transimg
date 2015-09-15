@@ -26,7 +26,6 @@
 
     'use strict';
 
-
     var methods = {
 
         init: function(options) {
@@ -38,16 +37,18 @@
 				shadow:		true,  		// addin in box shadows
 				animSet:	true,  		// allow sub animation effects
 				animation:	"fadeUp",	// default animation
-				animSpeed:	1000,   	// set duration speed for animation
-				showCaption:true,		// show image captions
-				overlay:	true,		// show overlay on hover
-				zoom:		true		// allow zoom on image
+				frame: 		"diamond"	// frame styles, webkits only
                 
             };
 
             // default settings
-            options = $.extend(defaults, options);
+            if (options) {
+             	$.extend(defaults, options);
+         	}
 
+         	function _show(target_elm, caption) {}
+
+			function _hide(target_elm, caption) {}
            
 
             return this.each(function(){
@@ -62,79 +63,24 @@
 				}
 				else
 				{
-					
-					if (defaults['overlay'] == true)
-				{
-					$("body").append("<div id='overlay-transimg'></div>");
-				}
-				
-				el.wrap( "<div class='trans'></div>" );
-				$('.trans').append("<div class='caption'></div>");
+							
+					el.wrap( "<div class='trans'></div>" );
+					$('.trans').append("<div class='caption'></div>");
 
-				if (defaults['circular'] == true)
-				{
-					el.addClass( "circular" );
-				}
-				
-				if (defaults['rounded'] == true)
-				{
-					el.removeClass( "circular" ).addClass( "rounded" );
-				}
-				
-				if (defaults['shadow'] == true)
-				{
-					el.addClass( "shadow" );
-				}
-				
-				if (defaults['animSet'] == true)
-				{
-					methods.applyAnimation(el, defaults['animation'], defaults['animSpeed']);
-				}
-				
-				
-				
-				
-					$('.trans').on('mouseover', function(){
+					var circular = defaults['circular'] == true ? el.addClass( "circular" ) : '';
+					var rounded = defaults['rounded'] == true ? el.addClass( "rounded" ) : '';
+					var shadow = defaults['shadow'] == true ? el.addClass( "shadow" ) : '';
+
+					methods.applyFrame(el, defaults['frame']);
+					methods.determineBrowser(el, defaults['circular']);
 					
-						$('#overlay-transimg').fadeIn(200);
-						el.css({"z-index": 999999, "position": "relative"});
-						
-						if (defaults['zoom'] == true)
-						{
-							$('.trans').animate({ 'zoom': 1.1 }, 400);
-						}
-						
-						if (defaults['showCaption'] == true)
-						{
-							$('.caption').text(caption).fadeIn(500);
-						}
-					});
-					$('.trans').on('mouseout', function(){
-						
-						$('#overlay-transimg').fadeOut(200);
-						el.css({"z-index": 99, "position": "relative"});
-						
-						if (defaults['zoom'] == true)
-						{
-							$('.trans').animate({ 'zoom': 1 }, 400);
-						}
-						
-						if (defaults['showCaption'] == true)
-						{
-							$('.caption').text(caption).fadeOut(500);
-						}
-						
-					});
-					
-					
+					if (defaults['animSet'] == true)
+					{
+						methods.applyAnimation(el, defaults['animation'], defaults['animSpeed']);
+					}
+	
 				}
-				
-				
-				
-				
-                
-				
-                 
+
             });
 
         },
@@ -155,9 +101,38 @@
 					el.addClass("spin-in");
 				break
 			}
-			
-			
-			
+
+		},
+		applyFrame: function(el, frame) {
+
+			switch(frame)
+			{
+				case "bevel": el.removeClass( "circular" ).addClass("bevel");
+				break;
+				case "star": el.removeClass( "circular" ).addClass("star");
+				break;
+				case "message": el.removeClass( "circular" ).addClass("message");
+				break;
+				case "diamond": el.removeClass( "circular" ).addClass("diamond");
+				break;
+			}
+		},
+		determineBrowser: function(el, circleApplication) {
+				var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+                    // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
+                var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+                var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+                    // At least Safari 3+: "[object HTMLElementConstructor]"
+                var isChrome = !!window.chrome && !isOpera;              // Chrome 1+
+                var isIE = /*@cc_on!@*/false || !!document.documentMode; // At least IE6
+
+                if (isFirefox == true || isIE == true)
+                {
+                    if (circleApplication == true)
+					{
+						el.addClass( "circular" );
+					}
+                }
 		}
        
     }
