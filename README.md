@@ -49,4 +49,4 @@ Turn your pictures into something more. Designed by [planlodge](https://github.c
 
 ## License
 
-Color ChangeJS is licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Transimg is licensed under the [MIT license](http://opensource.org/licenses/MIT).
