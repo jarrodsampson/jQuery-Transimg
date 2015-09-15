@@ -3,6 +3,7 @@ Turn your pictures into something more. Designed by [planlodge](https://github.c
 
 [![Build Status](https://travis-ci.org/stevenbenner/jquery-powertip.svg?branch=master)](https://travis-ci.org/stevenbenner/jquery-powertip)
 ![Release Version](http://img.shields.io/github/release/stevenbenner/jquery-powertip.svg)
+(https://img.shields.io/bower/l/bootstrap.svg)
 
 ## Getting Started
 
