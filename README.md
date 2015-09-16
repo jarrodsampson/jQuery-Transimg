@@ -5,6 +5,8 @@ Turn your pictures into something more. Designed by [planlodge](https://github.c
 ![Release Version](http://img.shields.io/github/release/stevenbenner/jquery-powertip.svg)
 ![License](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
+(http://planlodge.com/github/record.gif)
+
 ## Getting Started
 
  1. Include jQuery in your code.
