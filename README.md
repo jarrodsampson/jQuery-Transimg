@@ -53,6 +53,6 @@ Turn your pictures into something more. Designed by [planlodge](https://github.c
 
 > Internet Explorer and Firefox do not currently support the css clip feature. Must have availability to use webkits.
 
-## License
+## License 
 
 Transimg is licensed under the [MIT license](http://opensource.org/licenses/MIT).
